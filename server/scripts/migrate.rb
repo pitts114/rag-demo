@@ -31,4 +31,7 @@ DB.create_table! :embeddings do
   index :review_id, unique: true
 end
 
+# Create HNSW vector index for fast cosine similarity search
+DB.run("CREATE INDEX embeddings_vector_idx ON embeddings USING hnsw (vector vector_cosine_ops)")
+
 puts "Database migration completed successfully!"
