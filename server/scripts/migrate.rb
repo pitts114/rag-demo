@@ -19,6 +19,8 @@ DB.create_table! :reviews do
   Integer :rating
   String :author
   DateTime :created_at, default: Sequel::CURRENT_TIMESTAMP
+
+  index :product_id  # Index for efficient product filtering
 end
 
 DB.create_table! :embeddings do
