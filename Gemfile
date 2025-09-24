@@ -10,6 +10,7 @@ gem 'dotenv', '~> 3.1'
 gem 'json', '~> 2.7'
 gem 'httparty', '~> 0.22'
 gem 'puma', '~> 6.4'
+gem 'rackup', '~> 2.1'
 
 group :development do
   gem 'rerun', '~> 0.14'
