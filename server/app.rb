@@ -12,6 +12,17 @@ end
 
 before do
   content_type :json
+  # CORS headers
+  headers 'Access-Control-Allow-Origin' => '*',
+          'Access-Control-Allow-Methods' => ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+          'Access-Control-Allow-Headers' => 'Content-Type'
+end
+
+# Handle preflight requests
+options '*' do
+  response.headers['Allow'] = 'HEAD,GET,PUT,POST,DELETE,OPTIONS'
+  response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+  200
 end
 
 get '/' do
