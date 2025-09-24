@@ -45,7 +45,7 @@ class RagService
         Sequel[:reviews][:rating],
         Sequel[:reviews][:author],
         Sequel[:products][:name].as(:product_name),
-        Sequel.lit("vector <=> ? AS similarity", embedding_vector).as(:similarity)
+        Sequel.lit("vector <=> ?", embedding_vector).as(:similarity)
       )
       .order(:similarity)
       .limit(limit)
